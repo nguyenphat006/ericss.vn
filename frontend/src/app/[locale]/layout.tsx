@@ -16,6 +16,8 @@ import "../globals.css";
 const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin", "vietnamese"],
+  // Trục độ rộng để tiêu đề section in hoa dùng dạng chữ nén (font-stretch)
+  axes: ["wdth"],
 });
 
 const body = Be_Vietnam_Pro({

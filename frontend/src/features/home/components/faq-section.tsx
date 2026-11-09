@@ -17,6 +17,7 @@ export function FaqSection({ content }: { content: HomeContent["faq"] }) {
     <Section id="faq">
       <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <SectionHeading
+          index="09"
           eyebrow={content.eyebrow}
           title={content.title}
           align="left"

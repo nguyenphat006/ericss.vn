@@ -207,6 +207,7 @@ export function FeedbackSection({
     <Section id="feedback" className="overflow-hidden">
       <Container>
         <SectionHeading
+          index="07"
           eyebrow={content.eyebrow}
           title={content.title}
           lede={content.lede}

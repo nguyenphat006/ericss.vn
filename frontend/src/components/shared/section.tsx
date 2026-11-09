@@ -32,37 +32,80 @@ export function Section({
   );
 }
 
-/** Tiêu đề section chung: eyebrow dạng chip + tiêu đề lớn + mô tả. */
+/**
+ * Tách tiêu đề theo dấu *...*: phần thường màu mực đậm, cụm trong sao màu xanh biển chủ đạo.
+ * Không có dấu sao thì cả câu màu đậm.
+ */
+function renderTitle(title: string) {
+  if (!title.includes("*")) return title;
+  return title.split(/(\*[^*]+\*)/).map((part, i) =>
+    part.startsWith("*") && part.endsWith("*") ? (
+      <span key={i} className="text-ocean-600 whitespace-nowrap">
+        {part.slice(1, -1)}
+      </span>
+    ) : (
+      <span key={i} className="text-ink">
+        {part}
+      </span>
+    ),
+  );
+}
+
+/**
+ * Tiêu đề section chung:
+ * - dòng nhãn: số thứ tự + vạch + nhãn in hoa giãn chữ;
+ * - tiêu đề IN HOA rất đậm, dạng nén, hai tông: phần thường màu mực, cụm nhấn bọc *...* màu xanh biển;
+ * - mô tả có vạch dọc bên trái. Kiểu "split" đặt mô tả sang cột phải trên màn hình lớn.
+ */
 export function SectionHeading({
+  index,
   eyebrow,
   title,
   lede,
-  align = "center",
+  align = "split",
   className,
 }: {
+  index?: string;
   eyebrow: string;
-  title: ReactNode;
+  title: string;
   lede?: string;
-  align?: "center" | "left";
+  align?: "split" | "left" | "center";
   className?: string;
 }) {
+  const center = align === "center";
   return (
     <Reveal
       className={cn(
-        "mb-12 flex flex-col gap-4 sm:mb-16",
-        align === "center" ? "items-center text-center" : "items-start",
+        "mb-12 flex flex-col gap-6 sm:mb-16",
+        align === "split" &&
+          "lg:grid lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-16",
+        center && "items-center text-center",
         className,
       )}
     >
-      <span className="border-ocean-200 bg-ocean-50 text-ocean-700 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs tracking-wider uppercase">
-        <span className="bg-aqua size-1.5 rounded-full" />
-        {eyebrow}
-      </span>
-      <h2 className="font-heading text-ink max-w-3xl text-3xl leading-[1.1] font-bold tracking-tight text-balance sm:text-5xl">
-        {title}
-      </h2>
+      <div className={cn("flex flex-col gap-5", center && "items-center")}>
+        <p className="flex items-center gap-3">
+          {index ? (
+            <span className="text-ocean-600 font-mono text-sm font-semibold">
+              {index}
+            </span>
+          ) : null}
+          <span className="bg-ocean-300 h-px w-10" />
+          <span className="text-ocean-700 text-xs font-bold tracking-[0.22em] uppercase">
+            {eyebrow}
+          </span>
+        </p>
+        <h2 className="font-heading text-ink max-w-4xl text-[2.1rem] leading-[1.12] font-extrabold tracking-[-0.015em] text-balance uppercase [font-stretch:82%] sm:text-[3.4rem] lg:text-[4rem]">
+          {renderTitle(title)}
+        </h2>
+      </div>
       {lede ? (
-        <p className="text-ink-soft max-w-2xl text-base text-pretty sm:text-lg">
+        <p
+          className={cn(
+            "text-ink-soft max-w-md text-base leading-relaxed text-pretty sm:text-lg",
+            center ? "max-w-2xl" : "border-ocean-200 border-l-2 pl-4",
+          )}
+        >
           {lede}
         </p>
       ) : null}

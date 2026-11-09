@@ -35,9 +35,10 @@ function Row({
         >
           <span
             className={cn(
-              "font-heading text-[13vw] leading-[0.95] font-extrabold tracking-tight uppercase sm:text-[8.5vw] lg:text-[7rem]",
+              // leading rộng + py để dấu tiếng Việt chồng tầng (Ế, Ầ, Ỗ) không bị cắt hay đè hàng trên
+              "font-heading py-[0.06em] text-[12vw] leading-[1.2] font-extrabold tracking-tight uppercase sm:text-[8vw] lg:text-[6.5rem]",
               outline
-                ? "text-stroke-ocean"
+                ? "text-ocean-200/80 hover:text-ocean-400 transition-colors duration-500"
                 : i % 2
                   ? "text-gradient"
                   : "text-ink",
@@ -55,7 +56,7 @@ function Row({
 }
 
 /**
- * Hai hàng chữ khổng lồ trượt ngược chiều theo nhịp cuộn (không tự chạy):
+ * Hai hàng chữ khổng lồ (đậm + nhạt) trượt ngược chiều theo nhịp cuộn (không tự chạy):
  * cuộn nhanh thì chữ lướt nhanh, dừng cuộn thì chữ dừng. Do người xem điều khiển nên giữ cả khi giảm chuyển động.
  */
 export function KineticType({ content }: { content: HomeContent["kinetic"] }) {
@@ -67,19 +68,18 @@ export function KineticType({ content }: { content: HomeContent["kinetic"] }) {
   const p = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
   const x1 = useTransform(p, [0, 1], ["0%", "-30%"]);
   const x2 = useTransform(p, [0, 1], ["-35%", "-5%"]);
-  const tilt = useTransform(p, [0, 0.5, 1], [-2, 0, 2]);
 
   return (
     <div
       ref={ref}
-      className="relative -mt-8 overflow-hidden py-4 sm:-mt-12 sm:py-8"
+      className="relative -mt-8 overflow-x-clip py-2 sm:-mt-12 sm:py-6"
       aria-label={content.solid.join(", ")}
       role="img"
     >
-      <motion.div style={{ rotate: tilt }} className="flex flex-col gap-2">
+      <div className="flex flex-col">
         <Row words={content.solid} x={x1} />
         <Row words={content.outline} x={x2} outline />
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ import {
 } from "motion/react";
 import { useRef, useState } from "react";
 import { Reveal } from "@/components/shared/reveal";
-import { Container } from "@/components/shared/section";
+import { Container, SectionHeading } from "@/components/shared/section";
 import type { HomeContent } from "@/data/home";
 import { cn } from "@/lib/utils";
 
@@ -285,18 +285,14 @@ export function ProcessSection({ content }: { content: Content }) {
   );
 
   const heading = (
-    <Reveal className="flex flex-col items-start gap-4">
-      <span className="border-ocean-200 bg-ocean-50 text-ocean-700 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs tracking-wider uppercase">
-        <span className="bg-aqua size-1.5 rounded-full" />
-        {content.eyebrow}
-      </span>
-      <h2 className="font-heading text-ink text-3xl leading-[1.1] font-bold tracking-tight text-balance sm:text-5xl">
-        {content.title}
-      </h2>
-      <p className="text-ink-soft max-w-md text-base text-pretty">
-        {content.lede}
-      </p>
-    </Reveal>
+    <SectionHeading
+      index="04"
+      eyebrow={content.eyebrow}
+      title={content.title}
+      lede={content.lede}
+      align="left"
+      className="mb-0 gap-5 sm:mb-0"
+    />
   );
 
   return (

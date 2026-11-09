@@ -21,6 +21,7 @@ export function PricingSection({
       />
       <Container className="relative">
         <SectionHeading
+          index="08"
           eyebrow={content.eyebrow}
           title={content.title}
           lede={content.lede}

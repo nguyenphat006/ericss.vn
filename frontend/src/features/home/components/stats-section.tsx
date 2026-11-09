@@ -48,6 +48,7 @@ export function StatsSection({ content }: { content: HomeContent["stats"] }) {
       />
       <Container className="relative">
         <SectionHeading
+          index="02"
           eyebrow={content.eyebrow}
           title={content.title}
           lede={content.lede}

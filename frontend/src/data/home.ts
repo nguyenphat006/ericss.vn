@@ -27,6 +27,7 @@ export type HomeContent = {
   };
   services: {
     eyebrow: string;
+    /** Tiêu đề section: bọc *cụm từ* để nhấn (gradient + nét lượn) */
     title: string;
     lede: string;
     items: {
@@ -167,7 +168,7 @@ const vi: HomeContent = {
   },
   services: {
     eyebrow: "Dịch vụ",
-    title: "Bốn mũi nhọn công nghệ",
+    title: "Bốn mũi nhọn *công nghệ*",
     lede: "Mỗi dịch vụ đi kèm quy trình rõ ràng, tiến độ minh bạch và đội ngũ đồng hành sau bàn giao.",
     items: [
       {
@@ -213,7 +214,7 @@ const vi: HomeContent = {
   },
   process: {
     eyebrow: "Quy trình",
-    title: "Hành trình một dự án cùng Ericss",
+    title: "Hành trình một dự án cùng *Ericss*",
     lede: "Cuộn để đi qua từng tuần: bạn luôn biết dự án đang ở đâu và sắp tới là gì.",
     weekLabel: "Tuần",
     totalWeeks: 8,
@@ -263,7 +264,7 @@ const vi: HomeContent = {
   },
   stats: {
     eyebrow: "Con số",
-    title: "Tăng trưởng đều qua từng năm",
+    title: "Tăng trưởng *đều đặn* qua từng năm",
     lede: "Hơn bốn năm đồng hành cùng khách hàng từ startup đến doanh nghiệp.",
     cards: [
       { value: 200, suffix: "+", label: "Dự án hoàn thành" },
@@ -295,7 +296,7 @@ const vi: HomeContent = {
   },
   tech: {
     eyebrow: "Công nghệ",
-    title: "Bộ công nghệ chúng tôi làm chủ",
+    title: "Bộ công nghệ chúng tôi *làm chủ*",
     lede: "Chọn đúng công cụ cho từng bài toán, ưu tiên ổn định và dễ bảo trì lâu dài.",
     categories: [
       {
@@ -358,7 +359,7 @@ const vi: HomeContent = {
   },
   projects: {
     eyebrow: "Dự án",
-    title: "Sản phẩm đang vận hành",
+    title: "Sản phẩm *đang vận hành*",
     items: [
       {
         name: "Rentino",
@@ -382,7 +383,7 @@ const vi: HomeContent = {
   },
   about: {
     eyebrow: "Về chúng tôi",
-    title: "Đội ngũ nhỏ, tiêu chuẩn lớn",
+    title: "Đội ngũ nhỏ, *tiêu chuẩn lớn*",
     manifesto:
       "Chúng tôi không chỉ viết code. Chúng tôi biến *ý tưởng* thành *sản phẩm chạy thật*, đo bằng khách hàng mới, doanh thu và những người dùng *quay lại mỗi ngày*.",
     story: [
@@ -433,7 +434,7 @@ const vi: HomeContent = {
   },
   feedback: {
     eyebrow: "Khách hàng nói gì",
-    title: "Niềm tin được xây từ kết quả",
+    title: "Niềm tin được xây từ *kết quả*",
     lede: "Một vài chia sẻ từ khách hàng đã đồng hành cùng Ericss.",
     items: [
       {
@@ -502,7 +503,7 @@ const vi: HomeContent = {
   },
   pricing: {
     eyebrow: "Bảng giá",
-    title: "Gói linh hoạt cho mọi quy mô",
+    title: "Gói linh hoạt cho *mọi quy mô*",
     lede: "Báo giá rõ ràng, không phát sinh ngoài thoả thuận.",
     note: "Giá tham khảo cho website, báo giá chính xác sau buổi tư vấn.",
     popular: "Phổ biến nhất",
@@ -550,7 +551,7 @@ const vi: HomeContent = {
   },
   faq: {
     eyebrow: "FAQ",
-    title: "Câu hỏi thường gặp",
+    title: "Câu hỏi *thường gặp*",
     items: [
       {
         q: "Làm một website mất bao lâu?",
@@ -625,7 +626,7 @@ const en: HomeContent = {
   },
   services: {
     eyebrow: "Services",
-    title: "Four technology spearheads",
+    title: "Four technology *spearheads*",
     lede: "Every service comes with a clear process, transparent timelines and support after handover.",
     items: [
       {
@@ -671,7 +672,7 @@ const en: HomeContent = {
   },
   process: {
     eyebrow: "Process",
-    title: "The journey of a project with Ericss",
+    title: "The journey of a project with *Ericss*",
     lede: "Scroll through the weeks: you always know where the project is and what comes next.",
     weekLabel: "Week",
     totalWeeks: 8,
@@ -721,7 +722,7 @@ const en: HomeContent = {
   },
   stats: {
     eyebrow: "Numbers",
-    title: "Steady growth, year after year",
+    title: "*Steady growth*, year after year",
     lede: "Over four years working with clients from startups to enterprises.",
     cards: [
       { value: 200, suffix: "+", label: "Projects delivered" },
@@ -739,7 +740,7 @@ const en: HomeContent = {
   },
   tech: {
     eyebrow: "Technology",
-    title: "The stack we master",
+    title: "The stack we *master*",
     lede: "The right tool for each problem, favouring stability and long-term maintainability.",
     categories: [
       {
@@ -776,7 +777,7 @@ const en: HomeContent = {
   },
   projects: {
     eyebrow: "Projects",
-    title: "Products running in production",
+    title: "Products running in *production*",
     items: [
       {
         name: "Rentino",
@@ -800,7 +801,7 @@ const en: HomeContent = {
   },
   about: {
     eyebrow: "About us",
-    title: "A small team with high standards",
+    title: "A small team with *high standards*",
     manifesto:
       "We don't just write code. We turn *ideas* into *products that run*, measured in new customers, revenue and users who *come back every day*.",
     story: [
@@ -848,7 +849,7 @@ const en: HomeContent = {
   },
   feedback: {
     eyebrow: "Testimonials",
-    title: "Trust built on results",
+    title: "Trust built on *results*",
     lede: "A few words from clients who worked with Ericss.",
     items: [
       {
@@ -917,7 +918,7 @@ const en: HomeContent = {
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Flexible plans for every size",
+    title: "Flexible plans for *every size*",
     lede: "Clear quotes with no surprises.",
     note: "Indicative website prices; an exact quote follows the consultation.",
     popular: "Most popular",
@@ -965,7 +966,7 @@ const en: HomeContent = {
   },
   faq: {
     eyebrow: "FAQ",
-    title: "Frequently asked questions",
+    title: "Frequently asked *questions*",
     items: [
       {
         q: "How long does a website take?",

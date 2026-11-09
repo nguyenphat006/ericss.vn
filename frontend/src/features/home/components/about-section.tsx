@@ -1,13 +1,8 @@
 "use client";
 
-import {
-  Award,
-  Quote,
-  Rocket,
-  ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
+import { Quote } from "lucide-react";
 import { motion, useScroll, useTransform } from "motion/react";
+import Image from "next/image";
 import { useRef } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/reveal";
 import { ScrollRevealText } from "@/components/shared/scroll-reveal-text";
@@ -18,7 +13,8 @@ import {
 } from "@/components/shared/section";
 import type { HomeContent } from "@/data/home";
 
-const ADV_ICONS: LucideIcon[] = [Award, Rocket, ShieldCheck];
+// Icon 3D (Fluent Emoji, MIT) trong public/icons3d
+const ADV_ICONS = ["laptop", "rocket", "shield"];
 
 export function AboutSection({ content }: { content: HomeContent["about"] }) {
   const timelineRef = useRef<HTMLOListElement>(null);
@@ -42,6 +38,7 @@ export function AboutSection({ content }: { content: HomeContent["about"] }) {
       />
       <Container className="relative">
         <SectionHeading
+          index="06"
           eyebrow={content.eyebrow}
           title={content.title}
           align="left"
@@ -124,12 +121,18 @@ export function AboutSection({ content }: { content: HomeContent["about"] }) {
 
         <Stagger className="mt-16 grid gap-4 md:grid-cols-3">
           {content.advantages.map((a, i) => {
-            const Icon = ADV_ICONS[i % ADV_ICONS.length];
+            const icon = ADV_ICONS[i % ADV_ICONS.length];
             return (
               <StaggerItem key={a.title}>
                 <div className="group border-border hover:border-ocean-200 hover:shadow-ocean flex h-full items-start gap-4 rounded-3xl border bg-white p-6 transition-[border-color,box-shadow] duration-500">
-                  <span className="bg-ocean-50 text-ocean-600 group-hover:bg-ocean-600 grid size-12 shrink-0 place-items-center rounded-2xl transition-colors duration-300 group-hover:text-white">
-                    <Icon className="size-5 transition-transform duration-500 group-hover:rotate-12" />
+                  <span className="bg-ocean-50 grid size-14 shrink-0 place-items-center rounded-2xl">
+                    <Image
+                      src={`/icons3d/${icon}.png`}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className="size-10 transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-6"
+                    />
                   </span>
                   <div>
                     <h3 className="text-ink font-semibold">{a.title}</h3>

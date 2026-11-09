@@ -1,11 +1,5 @@
-import {
-  Bot,
-  Check,
-  GraduationCap,
-  Globe,
-  Smartphone,
-  type LucideIcon,
-} from "lucide-react";
+import { Check } from "lucide-react";
+import Image from "next/image";
 import { Stagger, StaggerItem } from "@/components/shared/reveal";
 import {
   Container,
@@ -16,11 +10,12 @@ import { SpotlightCard } from "@/components/shared/spotlight-card";
 import type { HomeContent, ServiceKey } from "@/data/home";
 import { ServiceDemo } from "./service-demos";
 
-const ICONS: Record<ServiceKey, LucideIcon> = {
-  website: Globe,
-  mobile: Smartphone,
-  chatbot: Bot,
-  academic: GraduationCap,
+// Icon 3D (Fluent Emoji, MIT) trong public/icons3d
+const ICONS: Record<ServiceKey, string> = {
+  website: "globe_with_meridians",
+  mobile: "mobile_phone",
+  chatbot: "robot",
+  academic: "graduation_cap",
 };
 
 export function ServicesSection({
@@ -36,21 +31,26 @@ export function ServicesSection({
       />
       <Container className="relative">
         <SectionHeading
+          index="01"
           eyebrow={content.eyebrow}
           title={content.title}
           lede={content.lede}
         />
         <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {content.items.map((s, i) => {
-            const Icon = ICONS[s.key];
+            const icon = ICONS[s.key];
             return (
               <StaggerItem key={s.key} className="h-full">
                 <SpotlightCard className="h-full p-5 sm:p-6">
                   <ServiceDemo kind={s.key} demo={content.demo} />
                   <div className="mt-6 flex items-center gap-3">
-                    <span className="from-ocean-500 to-aqua shadow-ocean relative grid size-10 place-items-center rounded-xl bg-gradient-to-br text-white transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
-                      <Icon className="size-5" />
-                    </span>
+                    <Image
+                      src={`/icons3d/${icon}.png`}
+                      alt=""
+                      width={44}
+                      height={44}
+                      className="size-11 shrink-0 drop-shadow-[0_8px_12px_rgb(11_91_211/0.25)] transition-transform duration-500 group-hover:-translate-y-1 group-hover:-rotate-6"
+                    />
                     <h3 className="font-heading text-ink flex-1 text-xl font-bold">
                       {s.title}
                     </h3>

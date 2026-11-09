@@ -1,13 +1,7 @@
 "use client";
 
-import {
-  Code2,
-  Gauge,
-  Search,
-  ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 import { useState } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/reveal";
 import {
@@ -16,9 +10,16 @@ import {
   SectionHeading,
 } from "@/components/shared/section";
 import type { HomeContent } from "@/data/home";
+import { TechLogo } from "@/components/shared/tech-logo";
 import { cn } from "@/lib/utils";
 
-const HIGHLIGHT_ICONS: LucideIcon[] = [Code2, Gauge, ShieldCheck, Search];
+// Icon 3D (Fluent Emoji) cho 4 điểm mạnh: code sạch, hiệu năng, bảo mật, SEO
+const HIGHLIGHT_ICONS = [
+  "gear",
+  "high_voltage",
+  "locked",
+  "magnifying_glass_tilted_left",
+];
 
 export function TechSection({ content }: { content: HomeContent["tech"] }) {
   const [active, setActive] = useState(content.categories[0].key);
@@ -29,6 +30,7 @@ export function TechSection({ content }: { content: HomeContent["tech"] }) {
     <Section id="tech">
       <Container>
         <SectionHeading
+          index="03"
           eyebrow={content.eyebrow}
           title={content.title}
           lede={content.lede}
@@ -37,7 +39,7 @@ export function TechSection({ content }: { content: HomeContent["tech"] }) {
         <Reveal className="mx-auto max-w-4xl">
           <div
             role="tablist"
-            aria-label={content.title}
+            aria-label={content.title.replace(/\*/g, "")}
             className="border-border bg-surface-soft mx-auto mb-8 flex w-fit max-w-full flex-wrap justify-center gap-1 rounded-full border p-1.5"
           >
             {content.categories.map((c) => (
@@ -91,8 +93,9 @@ export function TechSection({ content }: { content: HomeContent["tech"] }) {
                       show: { opacity: 1, y: 0, scale: 1 },
                     }}
                     whileHover={{ y: -4, scale: 1.05 }}
-                    className="border-ocean-100 bg-ocean-50 text-ocean-800 hover:border-ocean-300 cursor-default rounded-2xl border px-5 py-3 font-mono text-sm font-medium shadow-[0_6px_20px_-14px_rgb(11_91_211/0.6)] transition-colors"
+                    className="border-ocean-100 text-ink hover:border-ocean-300 flex cursor-default items-center gap-2.5 rounded-2xl border bg-white px-4 py-3 text-sm font-semibold shadow-[0_6px_20px_-14px_rgb(11_91_211/0.6)] transition-colors"
                   >
+                    <TechLogo name={s} className="size-6" />
                     {s}
                   </motion.li>
                 ))}
@@ -103,13 +106,17 @@ export function TechSection({ content }: { content: HomeContent["tech"] }) {
 
         <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {content.highlights.map((h, i) => {
-            const Icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
+            const icon = HIGHLIGHT_ICONS[i % HIGHLIGHT_ICONS.length];
             return (
               <StaggerItem key={h.title}>
                 <div className="group hover:bg-ocean-50 flex items-start gap-4 rounded-2xl p-4 transition-colors">
-                  <span className="border-ocean-100 text-ocean-600 group-hover:bg-ocean-600 grid size-11 shrink-0 place-items-center rounded-xl border bg-white transition-colors group-hover:text-white">
-                    <Icon className="size-5" />
-                  </span>
+                  <Image
+                    src={`/icons3d/${icon}.png`}
+                    alt=""
+                    width={48}
+                    height={48}
+                    className="size-12 shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-6"
+                  />
                   <div>
                     <h3 className="text-ink font-semibold">{h.title}</h3>
                     <p className="text-ink-soft mt-1 text-sm">{h.desc}</p>

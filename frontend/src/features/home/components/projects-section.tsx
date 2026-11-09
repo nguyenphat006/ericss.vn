@@ -10,8 +10,11 @@ import {
 } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
-import { Reveal } from "@/components/shared/reveal";
-import { Container, Section } from "@/components/shared/section";
+import {
+  Container,
+  Section,
+  SectionHeading,
+} from "@/components/shared/section";
 import type { HomeContent } from "@/data/home";
 import { cn } from "@/lib/utils";
 
@@ -136,15 +139,13 @@ export function ProjectsSection({
     <Section id="projects">
       <Container className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
         <div className="lg:sticky lg:top-28 lg:h-fit">
-          <Reveal className="flex flex-col items-start gap-4">
-            <span className="border-ocean-200 bg-ocean-50 text-ocean-700 inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs tracking-wider uppercase">
-              <span className="bg-aqua size-1.5 rounded-full" />
-              {content.eyebrow}
-            </span>
-            <h2 className="font-heading text-ink text-3xl leading-[1.1] font-bold tracking-tight text-balance sm:text-5xl">
-              {content.title}
-            </h2>
-          </Reveal>
+          <SectionHeading
+            index="05"
+            eyebrow={content.eyebrow}
+            title={content.title}
+            align="left"
+            className="mb-0 sm:mb-0"
+          />
 
           <div className="mt-10 hidden lg:block">
             <p className="font-heading text-ink flex items-baseline gap-2 font-extrabold">
