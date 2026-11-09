@@ -10,6 +10,7 @@ import {
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { Reveal, Stagger, StaggerItem } from "@/components/shared/reveal";
+import { ScrollRevealText } from "@/components/shared/scroll-reveal-text";
 import {
   Container,
   Section,
@@ -44,6 +45,12 @@ export function AboutSection({ content }: { content: HomeContent["about"] }) {
           eyebrow={content.eyebrow}
           title={content.title}
           align="left"
+          className="mb-8 sm:mb-10"
+        />
+
+        <ScrollRevealText
+          text={content.manifesto}
+          className="font-heading text-ink mb-16 max-w-5xl text-3xl leading-[1.15] font-bold tracking-tight sm:mb-24 sm:text-5xl lg:text-6xl"
         />
 
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">

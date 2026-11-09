@@ -35,6 +35,33 @@ export type HomeContent = {
       desc: string;
       points: string[];
     }[];
+    /** Chữ chạy trong giao diện thu nhỏ của từng thẻ dịch vụ */
+    demo: {
+      url: string;
+      notification: string;
+      chatQ: string;
+      chatA: string;
+      tests: string;
+    };
+  };
+  /** Dải chữ lớn chạy theo cuộn: hàng 1 chữ đặc, hàng 2 chữ viền */
+  kinetic: { solid: string[]; outline: string[] };
+  /** Hành trình một dự án: section ghim, cuộn để đi qua từng giai đoạn */
+  process: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    weekLabel: string;
+    totalWeeks: number;
+    steps: {
+      title: string;
+      desc: string;
+      /** Tuần bắt đầu và kết thúc của giai đoạn */
+      weeks: [number, number];
+      items: string[];
+    }[];
+    scores: { label: string; value: number }[];
+    warranty: string;
   };
   stats: {
     eyebrow: string;
@@ -64,6 +91,8 @@ export type HomeContent = {
   about: {
     eyebrow: string;
     title: string;
+    /** Đoạn tuyên ngôn sáng dần theo cuộn; bọc *từ* để tô gradient */
+    manifesto: string;
     story: string[];
     founder: { name: string; role: string; quote: string };
     timeline: { year: string; title: string; desc: string }[];
@@ -170,6 +199,67 @@ const vi: HomeContent = {
         points: ["Phân tích thiết kế", "Mã nguồn sạch", "Hỗ trợ bảo vệ"],
       },
     ],
+    demo: {
+      url: "thuonghieu.vn",
+      notification: "Đơn hàng mới #1024",
+      chatQ: "Làm website mất bao lâu?",
+      chatA: "Thường 2–4 tuần, có bản demo ngay tuần đầu ạ!",
+      tests: "12 bài test đạt",
+    },
+  },
+  kinetic: {
+    solid: ["Website", "Mobile App", "AI Chatbot", "Đồ án CNTT"],
+    outline: ["Thiết kế", "Lập trình", "Tối ưu", "Bảo hành"],
+  },
+  process: {
+    eyebrow: "Quy trình",
+    title: "Hành trình một dự án cùng Ericss",
+    lede: "Cuộn để đi qua từng tuần: bạn luôn biết dự án đang ở đâu và sắp tới là gì.",
+    weekLabel: "Tuần",
+    totalWeeks: 8,
+    steps: [
+      {
+        title: "Phân tích",
+        desc: "Lắng nghe mục tiêu, chốt phạm vi, lên kế hoạch và báo giá rõ ràng.",
+        weeks: [1, 1],
+        items: [
+          "Mục tiêu kinh doanh",
+          "Đối tượng khách hàng",
+          "Danh sách tính năng",
+          "Tiến độ & báo giá",
+        ],
+      },
+      {
+        title: "Thiết kế",
+        desc: "Wireframe, giao diện và nhận diện; duyệt trên bản mẫu bấm thử được.",
+        weeks: [2, 3],
+        items: ["Wireframe", "Giao diện", "Bản mẫu"],
+      },
+      {
+        title: "Lập trình",
+        desc: "Code theo từng mốc, demo hằng tuần, kiểm thử tự động trước mỗi lần cập nhật.",
+        weeks: [4, 7],
+        items: [
+          "npm run build",
+          "Compiled successfully",
+          "24 tests passed",
+          "Deploying to production",
+        ],
+      },
+      {
+        title: "Bàn giao",
+        desc: "Chạy thật, đo hiệu năng, hướng dẫn sử dụng và bảo hành 12 tháng.",
+        weeks: [8, 8],
+        items: [],
+      },
+    ],
+    scores: [
+      { label: "Hiệu năng", value: 98 },
+      { label: "SEO", value: 100 },
+      { label: "Truy cập", value: 96 },
+      { label: "Chuẩn mực", value: 100 },
+    ],
+    warranty: "Bảo hành 12 tháng",
   },
   stats: {
     eyebrow: "Con số",
@@ -293,6 +383,8 @@ const vi: HomeContent = {
   about: {
     eyebrow: "Về chúng tôi",
     title: "Đội ngũ nhỏ, tiêu chuẩn lớn",
+    manifesto:
+      "Chúng tôi không chỉ viết code. Chúng tôi biến *ý tưởng* thành *sản phẩm chạy thật*, đo bằng khách hàng mới, doanh thu và những người dùng *quay lại mỗi ngày*.",
     story: [
       "Ericss bắt đầu từ năm 2022 với một mục tiêu đơn giản: giúp doanh nghiệp Việt có sản phẩm số đẹp, nhanh và thực sự mang lại khách hàng.",
       "Sau hơn bốn năm, chúng tôi đã hoàn thành hơn 200 dự án, từ website giới thiệu đến nền tảng thương mại điện tử và trợ lý AI.",
@@ -565,6 +657,67 @@ const en: HomeContent = {
         points: ["Analysis and design", "Clean source code", "Defense support"],
       },
     ],
+    demo: {
+      url: "yourbrand.com",
+      notification: "New order #1024",
+      chatQ: "How long does a website take?",
+      chatA: "Usually 2–4 weeks, with a demo in week one!",
+      tests: "12 tests passed",
+    },
+  },
+  kinetic: {
+    solid: ["Website", "Mobile App", "AI Chatbot", "IT Projects"],
+    outline: ["Design", "Build", "Optimise", "Support"],
+  },
+  process: {
+    eyebrow: "Process",
+    title: "The journey of a project with Ericss",
+    lede: "Scroll through the weeks: you always know where the project is and what comes next.",
+    weekLabel: "Week",
+    totalWeeks: 8,
+    steps: [
+      {
+        title: "Discovery",
+        desc: "We listen to your goals, agree the scope and send a clear plan and quote.",
+        weeks: [1, 1],
+        items: [
+          "Business goals",
+          "Target customers",
+          "Feature list",
+          "Timeline & quote",
+        ],
+      },
+      {
+        title: "Design",
+        desc: "Wireframes, UI and branding, reviewed on a clickable prototype.",
+        weeks: [2, 3],
+        items: ["Wireframe", "Interface", "Prototype"],
+      },
+      {
+        title: "Development",
+        desc: "Built in milestones, weekly demos and automated tests before every update.",
+        weeks: [4, 7],
+        items: [
+          "npm run build",
+          "Compiled successfully",
+          "24 tests passed",
+          "Deploying to production",
+        ],
+      },
+      {
+        title: "Launch",
+        desc: "Live in production, measured for speed, handed over with training and a 12-month warranty.",
+        weeks: [8, 8],
+        items: [],
+      },
+    ],
+    scores: [
+      { label: "Performance", value: 98 },
+      { label: "SEO", value: 100 },
+      { label: "Accessibility", value: 96 },
+      { label: "Best practices", value: 100 },
+    ],
+    warranty: "12-month warranty",
   },
   stats: {
     eyebrow: "Numbers",
@@ -648,6 +801,8 @@ const en: HomeContent = {
   about: {
     eyebrow: "About us",
     title: "A small team with high standards",
+    manifesto:
+      "We don't just write code. We turn *ideas* into *products that run*, measured in new customers, revenue and users who *come back every day*.",
     story: [
       "Ericss started in 2022 with a simple goal: help Vietnamese businesses get digital products that look great, run fast and actually bring in customers.",
       "Four years later we have delivered over 200 projects, from company websites to e-commerce platforms and AI assistants.",

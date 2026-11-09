@@ -2,6 +2,7 @@ import { Mail, Phone, Globe, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/shared/section";
 import { navItems, siteConfig, telUrl, zaloUrl } from "@/config/site";
+import { FooterWordmark } from "./footer-wordmark";
 import { Logo } from "./logo";
 
 function GithubIcon({ className }: { className?: string }) {
@@ -88,6 +89,9 @@ export function SiteFooter() {
             ))}
           </ul>
         </div>
+      </Container>
+      <Container className="relative">
+        <FooterWordmark />
       </Container>
       <Container className="relative">
         <div className="border-border text-ink-soft flex flex-col gap-2 border-t py-6 text-xs sm:flex-row sm:justify-between">

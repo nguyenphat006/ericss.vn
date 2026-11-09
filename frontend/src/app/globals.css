@@ -170,6 +170,15 @@
     background-clip: text;
     color: transparent;
   }
+  /* Chữ chỉ có viền xanh biển (dải chữ lớn) */
+  .text-stroke-ocean {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--ocean-300);
+    transition: color 0.5s;
+  }
+  .text-stroke-ocean:hover {
+    color: var(--ocean-100);
+  }
   /* Lưới chấm mờ làm nền section */
   .bg-dots {
     background-image: radial-gradient(
