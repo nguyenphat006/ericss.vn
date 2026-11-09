@@ -1,0 +1,42 @@
+{
+  "Metadata": {
+    "title": "Ericss · Giải pháp công nghệ toàn diện",
+    "description": "Ericss thiết kế website, mobile app, AI chatbot và đồ án CNTT: hiện đại, nhanh, bảo hành 12 tháng."
+  },
+  "NotFound": {
+    "title": "Không tìm thấy trang",
+    "lede": "Trang bạn tìm không tồn tại hoặc đã bị chuyển.",
+    "home": "Về trang chủ"
+  },
+  "ErrorPage": {
+    "title": "Đã có lỗi xảy ra",
+    "lede": "Vui lòng thử lại sau ít phút.",
+    "retry": "Thử lại",
+    "reference": "Mã tham chiếu: {digest}"
+  },
+  "Nav": {
+    "services": "Dịch vụ",
+    "stats": "Thành tựu",
+    "tech": "Công nghệ",
+    "about": "Về chúng tôi",
+    "pricing": "Bảng giá",
+    "faq": "FAQ",
+    "contact": "Liên hệ",
+    "cta": "Nhận tư vấn",
+    "menu": "Mở menu",
+    "language": "English",
+    "languageShort": "EN"
+  },
+  "Footer": {
+    "tagline": "Giải pháp công nghệ toàn diện cho doanh nghiệp Việt.",
+    "explore": "Khám phá",
+    "contact": "Liên hệ",
+    "rights": "Bảo lưu mọi quyền."
+  },
+  "Common": {
+    "scrollTop": "Lên đầu trang",
+    "openChat": "Mở trợ lý",
+    "closeChat": "Đóng trợ lý",
+    "visit": "Xem website"
+  }
+}

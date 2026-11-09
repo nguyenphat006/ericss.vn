@@ -1,0 +1,12 @@
+export { AboutSection } from "./components/about-section";
+export { ChatWidget } from "./components/chat-widget";
+export { ContactSection } from "./components/contact-section";
+export { FaqSection } from "./components/faq-section";
+export { FeedbackSection } from "./components/feedback-section";
+export { HeroSection } from "./components/hero-section";
+export { PricingSection } from "./components/pricing-section";
+export { ProjectsSection } from "./components/projects-section";
+export { ServicesSection } from "./components/services-section";
+export { StatsSection } from "./components/stats-section";
+export { TechMarquee } from "./components/tech-marquee";
+export { TechSection } from "./components/tech-section";

@@ -1,0 +1,42 @@
+{
+  "Metadata": {
+    "title": "Ericss · End-to-end technology solutions",
+    "description": "Ericss builds websites, mobile apps, AI chatbots and IT projects: modern, fast, with a 12-month warranty."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "lede": "The page you are looking for does not exist or has moved.",
+    "home": "Back to home"
+  },
+  "ErrorPage": {
+    "title": "Something went wrong",
+    "lede": "Please try again in a few minutes.",
+    "retry": "Try again",
+    "reference": "Reference: {digest}"
+  },
+  "Nav": {
+    "services": "Services",
+    "stats": "Results",
+    "tech": "Technology",
+    "about": "About",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Get in touch",
+    "menu": "Open menu",
+    "language": "Tiếng Việt",
+    "languageShort": "VI"
+  },
+  "Footer": {
+    "tagline": "End-to-end technology solutions for Vietnamese businesses.",
+    "explore": "Explore",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
+  "Common": {
+    "scrollTop": "Back to top",
+    "openChat": "Open assistant",
+    "closeChat": "Close assistant",
+    "visit": "Visit website"
+  }
+}

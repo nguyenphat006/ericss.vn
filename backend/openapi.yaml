@@ -1,0 +1,7 @@
+openapi: 3.0.3
+info:
+  title: Ericss Portfolio CMS API
+  version: 1.0.0
+  description: API nội bộ cho Ericss Portfolio (Next.js gọi phía server).
+paths: {}
+components: {}

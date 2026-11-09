@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens "Ocean Light" (2026-11-09): nền trắng sáng, xanh nước biển làm màu chủ đạo,
+ * aqua làm điểm nhấn. Đổi màu thương hiệu = đổi token ở :root, không sửa trong component.
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-mono: var(--font-code);
+
+  /* Thương hiệu */
+  --color-ocean-50: var(--ocean-50);
+  --color-ocean-100: var(--ocean-100);
+  --color-ocean-200: var(--ocean-200);
+  --color-ocean-300: var(--ocean-300);
+  --color-ocean-400: var(--ocean-400);
+  --color-ocean-500: var(--ocean-500);
+  --color-ocean-600: var(--ocean-600);
+  --color-ocean-700: var(--ocean-700);
+  --color-ocean-800: var(--ocean-800);
+  --color-ocean-900: var(--ocean-900);
+  --color-aqua: var(--aqua);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-surface-soft: var(--surface-soft);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-marquee-reverse: marquee var(--marquee-duration, 40s) linear
+    infinite reverse;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - var(--marquee-gap, 1.5rem) / 2));
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    100% {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
+}
+
+:root {
+  --ocean-50: #f0f7ff;
+  --ocean-100: #dcebff;
+  --ocean-200: #b8d8ff;
+  --ocean-300: #84bcff;
+  --ocean-400: #4896fb;
+  --ocean-500: #1a73f0;
+  --ocean-600: #0b5bd3;
+  --ocean-700: #0b48a8;
+  --ocean-800: #0f3d86;
+  --ocean-900: #0b2a5c;
+  --aqua: #19c3e6;
+  --ink: #0a1a33;
+  --ink-soft: #4a5b78;
+  --surface-soft: #f5f9ff;
+
+  --background: #ffffff;
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--ocean-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--ocean-50);
+  --secondary-foreground: var(--ocean-800);
+  --muted: var(--surface-soft);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--ocean-50);
+  --accent-foreground: var(--ocean-800);
+  --destructive: #e5484d;
+  --border: #e3ecf8;
+  --input: #d5e2f3;
+  --ring: var(--ocean-400);
+  --chart-1: var(--ocean-500);
+  --chart-2: var(--aqua);
+  --chart-3: var(--ocean-200);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: var(--ocean-200);
+    color: var(--ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Chữ gradient xanh biển → aqua cho từ khoá nổi bật */
+  .text-gradient {
+    background: linear-gradient(100deg, var(--ocean-600) 10%, var(--aqua) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Lưới chấm mờ làm nền section */
+  .bg-dots {
+    background-image: radial-gradient(
+      color-mix(in oklab, var(--ocean-300) 45%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(
+        color-mix(in oklab, var(--ocean-200) 40%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in oklab, var(--ocean-200) 40%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 56px 56px;
+  }
+  .mask-fade-y {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #000 15%,
+      #000 85%,
+      transparent
+    );
+  }
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 10%,
+      #000 90%,
+      transparent
+    );
+  }
+  /* Kính mờ cho header, thẻ nổi */
+  .glass {
+    background: color-mix(in oklab, #ffffff 72%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+  }
+  .shadow-ocean {
+    box-shadow:
+      0 1px 2px rgb(11 42 92 / 0.06),
+      0 12px 32px -12px rgb(11 91 211 / 0.25);
+  }
+}
