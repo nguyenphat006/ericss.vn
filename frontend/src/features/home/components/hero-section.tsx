@@ -1,12 +1,8 @@
 "use client";
 
 import { ArrowRight, Sparkles, ShieldCheck, Zap, Bot } from "lucide-react";
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, motion, useInView } from "motion/react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/shared/section";

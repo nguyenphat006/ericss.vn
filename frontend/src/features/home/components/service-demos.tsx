@@ -1,12 +1,8 @@
 "use client";
 
 import { Bell, Check, Search, Sparkles } from "lucide-react";
-import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useReducedMotion,
-} from "motion/react";
+import { AnimatePresence, motion, useInView } from "motion/react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { HomeContent, ServiceKey } from "@/data/home";
 import { cn } from "@/lib/utils";

@@ -1,6 +1,7 @@
 "use client";
 
-import { animate, useInView, useReducedMotion } from "motion/react";
+import { animate, useInView } from "motion/react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useEffect, useRef } from "react";
 
 /** Số chạy từ 0 tới value khi lọt vào màn hình. */
